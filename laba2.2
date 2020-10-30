@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <math.h>
+#include <locale.h>
+float main(){
+	setlocale(LC_ALL,"Rus");
+	float a,b,c,d,e;
+	printf ("введите переменные a b c: \n");
+	scanf ("%f %f %f",&a,&b,&c );
+	 if (a!=0,b!=0,c!=0){
+d=cbrt(a*b*c);
+printf("среднее геометрическое: %.0f\n", d );
+}
+else{
+  d=(a+b+c)/3 ;
+  printf("среднее арифметическое: %f", d );
+} 
+
+return 0;
+	}
+
