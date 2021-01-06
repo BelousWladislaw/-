@@ -1,0 +1,53 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+#include <locale.h>
+#include <conio.h>
+
+void main(void) {
+	setlocale(LC_ALL, "Russian");
+	int n, m, i, j, zero, x;
+	printf("Ââåäèòå êîëè÷åñòâî ñòðîê: ");
+	scanf("%d", &n);
+	printf("Ââåäèòå êîëè÷åñòâî ñòîëáöîâ: ");
+	scanf("%d", &m);
+	
+	float a[n][m];
+	printf("Ââåäèòå ýëåìåíòû ìàòðèöû: \n");
+	for(i=0; i<n; i++)
+	for(j=0; j<m; j++) {
+			printf("a[%d][%d]=", i, j);
+			scanf("%f", &a[i][j]);
+		}
+	printf("\n");
+	printf("Èñõîäíàÿ ìàòðèöà: \n");
+	for (i=0; i<n; i++) {
+			for(j=0; j<m; j++)
+			printf("%6.1f", a[i][j]);
+			printf("\n");
+		}
+	printf("\n");
+	zero=0; i=0; x=0;
+	while(zero==0 && i<n) {
+			zero=1;
+			
+			for(j=0; j<m; j++)
+			if (a[i][j]!=0)
+			zero=0;
+			
+			if(zero==1)
+			x=i;
+			i++;
+		}
+	if (x<m) {
+			for(i=0; i<n; i++)
+			a[i][x] = a[i][x]/2;
+			printf("Ïîëó÷åííàÿ ìàòðèöà: \n");
+			for(i=0; i<n; i++) {
+		  	for(j=0; j<m; j++)
+		  	printf("%6.1f", a[i][j]);
+		  	printf("\n");
+		}
+	}
+	    	else printf("Ïðåîáðàçîâàíèå íå âûïîëíåíî (ñòîëáöû ñ íîìåðîì %d ne ñóùåñòâóþò) \n", x+1);
+}
